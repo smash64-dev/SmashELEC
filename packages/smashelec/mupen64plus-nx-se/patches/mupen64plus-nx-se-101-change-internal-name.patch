@@ -1,0 +1,20 @@
+diff -Naur mupen64plus-nx-se-f5e7017038cd8987167d69f47ac785c49b44c682.orig/Makefile mupen64plus-nx-se-f5e7017038cd8987167d69f47ac785c49b44c682/Makefile
+--- mupen64plus-nx-se-f5e7017038cd8987167d69f47ac785c49b44c682.orig/Makefile	2020-03-08 18:16:28.756504561 +0000
++++ mupen64plus-nx-se-f5e7017038cd8987167d69f47ac785c49b44c682/Makefile	2020-03-08 18:17:10.028996668 +0000
+@@ -67,7 +67,7 @@
+    WITH_DYNAREC = arm
+ endif
+ 
+-TARGET_NAME := mupen64plus_next
++TARGET_NAME := mupen64plus_next_smash
+ CC_AS ?= $(CC)
+ 
+ GIT_VERSION ?= " $(shell git rev-parse --short HEAD || echo unknown)"
+@@ -75,6 +75,7 @@
+ 	COREFLAGS += -DGIT_VERSION=\"$(GIT_VERSION)\"
+ endif
+ 
++CORE_NAME := mupen64plus-smash
+ ifneq ($(CORE_NAME),)
+ 	COREFLAGS += -DCORE_NAME=\""$(CORE_NAME)"\"
+ endif

@@ -9,4 +9,8 @@ PKG_URL=""
 PKG_DEPENDS_TARGET="toolchain emuelec"
 PKG_SECTION="virtual"
 
+# smashelec is only tested/supported on Amlogic-ng
+if [ ${DISTRO} = "SmashELEC" ]; then
+  PKG_DEPENDS_TARGET+=" smashelec"
+fi
 
