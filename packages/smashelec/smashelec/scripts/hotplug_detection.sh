@@ -26,6 +26,17 @@ set_ra_setting() {
 	echo "${key} = \"${value}\"" >> "$ra_config"
 }
 
+# TODO: fix lazy hack
+set_ra_smash64_setting() {
+	local key="$1"
+	local value="$2"
+
+	local ra_config="/storage/.config/retroarch/config/Mupen64Plus-Next\ GLES2/Mupen64Plus-Next\ GLES2.cfg"
+
+	sed -i "/$key[ ]\+=/d" "$ra_config"
+	echo "${key} = \"${value}\"" >> "$ra_config"
+}
+
 set_audio_device() {
 	local audio_device="$1"
 	set_se_setting "ee_audio_device" "$audio_device"
@@ -70,6 +81,7 @@ if hdmi_plugged; then
 
 	# 22 = Core Provided
 	set_ra_setting "aspect_ratio_index" "22"
+	set_ra_smash64_setting "aspect_ratio_index" "22"
 else
 	if [[ "$CUR_RES" != "$CVBS_RES" ]]; then
 		se_logger "CVBS detected, changing to $CVBS_RES"
@@ -82,4 +94,5 @@ else
 
 	# 1 = 16:9
 	set_ra_setting "aspect_ratio_index" "1"
+	set_ra_smash64_setting "aspect_ratio_index" "1"
 fi
