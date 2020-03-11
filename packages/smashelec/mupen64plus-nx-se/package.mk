@@ -21,11 +21,7 @@ pre_configure_target() {
   sed -e "s|^GIT_VERSION ?.*$|GIT_VERSION := \" ${PKG_VERSION:0:7}\"|" -i Makefile
 }
 
-if [ ${PROJECT} = "Amlogic-ng" ]; then
-	PKG_MAKE_OPTS_TARGET+=" platform=AMLGX"
-fi
-
-PKG_MAKE_OPTS_TARGET+=" CORE_NAME=\"mupen64plus-smash\""
+PKG_MAKE_OPTS_TARGET+=" CORE_NAME=\"mupen64plus-smash\" platform=AMLGX"
 
 makeinstall_target() {
   mkdir -p $INSTALL/usr/lib/libretro

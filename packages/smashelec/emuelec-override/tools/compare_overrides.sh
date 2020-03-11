@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2020-present CEnnis91 (https://github.com/cennis91)
+
 is_text() {
 	file -i "$1" | cut -d':' -f2 | grep -q 'text'
 }

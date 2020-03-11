@@ -21,5 +21,11 @@ PKG_DEPENDS_TARGET+=" emuelec-override mupen64plus-nx-se ucon64 xdelta3"
 
 makeinstall_target() {
   mkdir -p $INSTALL/usr/config/smashelec
+  mkdir -p $INSTALL/usr/config/smashelec/scripts
+
   cp -rf $PKG_DIR/config/* $INSTALL/usr/config/smashelec
+  cp -rf $PKG_DIR/scripts/* $INSTALL/usr/config/smashelec/scripts
+
+  mkdir -p $INSTALL/usr/config/smashelec/logs
+  touch $INSTALL/usr/config/smashelec/logs/syslog
 }
