@@ -31,7 +31,7 @@ set_ra_smash64_setting() {
 	local key="$1"
 	local value="$2"
 
-	local ra_config="/storage/.config/retroarch/config/Mupen64Plus-Next\ GLES2/Mupen64Plus-Next\ GLES2.cfg"
+	local ra_config="/storage/.config/retroarch/config/Mupen64Plus-Next GLES2/Mupen64Plus-Next GLES2.cfg"
 
 	sed -i "/$key[ ]\+=/d" "$ra_config"
 	echo "${key} = \"${value}\"" >> "$ra_config"
